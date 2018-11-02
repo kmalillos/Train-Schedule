@@ -48,7 +48,7 @@ function addTrain() {
         destination = $("#destination").val().trim();
         firstTime = $("#first-time").val().trim();
         frequency = $("#frequency").val().trim();
-    
+
         //push values to database
         database.ref().push({
             trainName: trainName,
@@ -56,12 +56,6 @@ function addTrain() {
             firstTime: firstTime,
             frequency: frequency
         });
-
-        // $("#train-name").empty();
-        // $("#destination").empty();
-        // $("#first-time").empty();
-        // $("#frequency").empty();
-    
     }); 
 };
 
@@ -128,5 +122,16 @@ displayTime();
 addTrain();
 
 displayTrain();
+
+$("#clear-form").on("click", function(event) {
+    event.preventDefault();
+
+    console.log("CLICK")
+
+    $("#train-name").empty();
+    $("#destination").empty();
+    $("#first-time").empty();
+    $("#frequency").empty();
+});
 
 
