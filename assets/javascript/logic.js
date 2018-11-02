@@ -56,6 +56,11 @@ function addTrain() {
             firstTime: firstTime,
             frequency: frequency
         });
+
+        // $("#train-name").empty();
+        // $("#destination").empty();
+        // $("#first-time").empty();
+        // $("#frequency").empty();
     
     }); 
 };
