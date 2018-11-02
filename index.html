@@ -11,34 +11,29 @@
   <!-- Styles -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-
-
 
 </head>
 
 <body>
 
   <!-- Header -->
-  <div class="jumbotron jumbotron-fluid">
+  <div class="jumbotron jumbotron-fluid opacity">
     <div class="container">
       <h1 class="display-4">Train Schedule</h1>
+      <p id="time-holder"></p>
     </div>
   </div>
 
   <!-- Body -->
   <div class="center width">
 
-    <!-- Show Current Time -->
-    <div id="time-holder"></div>
-
     <br>
 
     <!-- Current Train Schedule -->
-    <div class="card">
+    <div class="card opacity">
 
-      <div class="card-header">
+      <div class="card-header ">
         <h3>Current Train Schedule</h3>
       </div>
 
@@ -51,7 +46,7 @@
               <tr>
                 <th>Train Name</th>
                 <th>Destination</th>
-                <th>Frequency(min)</th>
+                <th>Frequency(in mins)</th>
                 <th>Next Arrival</th>
                 <th>Minutes Away</th>
               </tr>
@@ -71,7 +66,7 @@
     <br>
 
     <!-- Add Train Form -->
-    <div class="card">
+    <div class="card opacity">
       
       <div class="card-header"><h3>Add Train</h3></div>
       
@@ -107,7 +102,7 @@
     
     </div> <!-- close card div-->
 
-  </div> <!-- close body div-->
+  </div> <!-- close center & width div-->
 
 
   <!-- Optional JavaScript -->

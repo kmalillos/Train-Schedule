@@ -64,7 +64,7 @@ function displayTrain() {
 
     database.ref().on("child_added", function(snapshot) {
 
-        // capture snapshot value
+        // to capture snapshot value
         var trainInfo = snapshot.val();
     
         // values from snapshot in database
@@ -73,37 +73,29 @@ function displayTrain() {
         var frequency = trainInfo.frequency;
 
         // values to calculate locally
-        var nextArrival;
+        var nextArrivalFormatted;
         var minutesAway = 0;
 
-            // to calculate var nextArrival and var minutesAway
-            var firstTime = trainInfo.firstTime;
-                
+            // to calculate var nextArrival and var minutesAway:
+                var firstTime = trainInfo.firstTime;
+
                 // First Time (pushed back 1 year to make sure it comes before current time)
-            var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
-                console.log(firstTimeConverted);
-
-                // Current time
-            var currentTime = moment();
-                console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
-
-                // Difference between the times
-            var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-                console.log("DIFFERENCE IN TIME: " + diffTime);
-
+                var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+                    
+                // Difference between the current time and first train time
+                var timeDiff = moment().diff(moment(firstTimeConverted), "minutes");
+                    
                 // Time apart (remainder)
-            var tRemainder = diffTime % frequency;
-                console.log(tRemainder);
-
+                var remainder = timeDiff % frequency;
+                    
                 // Minute Until Train
-            var minutesAway = frequency - tRemainder;
-             console.log("MINUTES TILL TRAIN: " + minutesAway);
+                var minutesAway = frequency - remainder;
 
                 // Next Train
-            var nextArrival = moment().add(minutesAway, "minutes");
-                console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm"));
+                var nextArrival = moment().add(minutesAway, "minutes");
 
-            var nextArrivalPretty;
+                // Fix Time Format
+                var nextArrivalFormatted = moment(nextArrival).format("LT");
 
         // HOOK TO HTML
         var trainHolder = $("#train-holder");
@@ -111,7 +103,7 @@ function displayTrain() {
                 trainName + "</td><td>" +
                 destination + "</td><td>" +
                 frequency + "</td><td>" +
-                nextArrival + "</td><td>" +
+                nextArrivalFormatted + "</td><td>" +
                 minutesAway + "</td></tr>");
     
     // Handle the errors

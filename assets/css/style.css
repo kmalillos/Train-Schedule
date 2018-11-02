@@ -1,5 +1,5 @@
 body {
-    /* background-image: url("../images/brick-background.jpg"); */
+    background-image: url("../images/train-station.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -15,10 +15,11 @@ body {
     width: 75%
 }
 
-#time-holder {
+h1, p {
     text-align: center;
 }
 
-/* .table {
-    width: 75%
-} */
+.opacity {
+    opacity: 0.88;
+}
+
